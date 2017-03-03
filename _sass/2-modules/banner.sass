@@ -1,0 +1,39 @@
+// banner
+.banner
+  margin-top: 20px
+  p
+    display: block
+    margin-bottom: 3px
+
+#share
+  +size(22px)
+  display: inline
+
+#share a img
+  +size(22px)
+  display: inline
+
+@media screen and (max-width: $break-tablet)
+  .banner
+    font-size: 16px
+    margin-top: 10px
+
+  #share
+    +size(20px)
+    margin-right: 20px
+
+  #share a img
+    +size(20px)
+    margin-left: 20px
+
+@media screen and (max-width: $break-mobile)
+  .banner
+    font-size: 12px
+    margin-bottom: -5px
+
+  #share
+    +size(15px)
+
+  #share a img
+    +size(15px)
+    margin-left: 25px

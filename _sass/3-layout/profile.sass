@@ -1,0 +1,163 @@
+// button styles
+#all-rockstars
+  display: block
+  text-align: center
+  margin: 10px 0 15px 0
+  text-decoration: underline
+  color: black
+#all-rockstars:hover
+  font-weight: 900
+
+.animate, .btn
+  transition: all 0.3s
+
+.btn-border-o
+  &:before, &:after
+    transition: all 0.3s
+
+.btn
+  display: inline-block
+  line-height: 35px
+  margin: 8px
+  padding: 0 15px
+  font-size: 15px
+  position: relative
+  opacity: .999
+  border-radius: 3px
+
+.btn-border-o
+  background-color: transparent
+  border: 1px solid #d0d0d0
+  color: #B8B8B8
+  &:before, &:after
+    content: ''
+    border-style: solid
+    position: absolute
+    z-index: 5
+    border-radius: 3px
+    box-sizing: content-box
+  &:before
+    width: 0
+    height: 100%
+    border-width: 1px 0 1px 0
+    top: -1px
+    left: 0
+    transition-delay: 0.05s
+  &:after
+    width: 100%
+    height: 0
+    border-width: 0 1px 0 1px
+    top: 0
+    left: -1px
+  &:hover
+    &:before
+      width: 100%
+    &:after
+      height: 100%
+  &.btn-blue
+    &:before, &:after
+      border-color: #40BCD8
+    &:hover
+      color: #40BCD8
+
+// profile styles
+.profiles
+  box-sizing: border-box
+  font-weight: 700
+  margin-bottom: 30px
+
+li
+  vertical-align: middle
+
+.menu
+  display: flex
+  justify-content: center
+  margin-bottom: 10px
+  p
+    margin-right: 5px
+  img
+    +size(20px)
+
+.media
+  margin: 0 15px 0 0
+  a
+    padding-left: 2px
+    display: block
+    +size(1.5em 1.4em)
+
+.selected
+  border-bottom: 2px solid black
+
+a
+  text-decoration: none
+
+.summary-link
+  text-align: center
+  margin: 10px 0 20px 0
+  a
+    color: #40BCD8
+    border-bottom: .5px solid #CAECF4
+    font-style: italic
+    font-weight: 500
+
+.parent
+  margin-left: 8%
+  margin-bottom: 10px
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  span
+    display: inline-block
+    width: 50%
+    text-align: left
+
+.parent:first-child
+  margin-left: 0%
+
+.item
+  width: 33.3333%
+  margin-bottom: 10px
+
+// change width based on device size (need 2 veiwports here)
+
+.url
+  +size(1em)
+  display: inline-block
+  border-radius: 3px
+  margin-left: 3px
+
+.twitter-link
+  background-color: #00A8E8
+.linkedin-link
+  background-color: #007EA7
+.facebook-link
+  background-color: #003459
+.medium-link
+  background-color: #1A936F
+.producthunt-link
+  background-color: #da552f
+.youtube-link
+  background-color: #bb0000
+.angellist-link
+  border: 2px solid #000000
+
+//1023px media query to 50%
+// 550px media query to 100%
+
+@media screen and (max-width: $break-tablet)
+  .item
+    width: 50%
+
+  .url
+    margin-left: 1%
+
+@media screen and (max-width: $break-mobile)
+  .item
+    width: 98%
+    margin-right: 2%
+
+  .parent
+    margin: 6% 3%
+
+  #all-rockstars
+    margin: 15px 0 5px 0
