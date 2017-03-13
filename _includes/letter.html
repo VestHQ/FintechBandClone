@@ -23,42 +23,38 @@
       <br/>
       <i class="em em-heart"></i> <a id="company" href="http://www.vesthq.com" target="_blank">The <b>Vest</b><b>HQ</b> Team</a>
     </p>
+    
+    <br/>
+      <form>
+        Full Name:<br>
+        <input type="text" name="fullName" id="formName"><br><br>
+
+        Age:<br>
+        <input type="text" name="age" id="formAge"><br><br>
+
+        Sex:<br>
+        <select name="gender" id="formSex">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select><br><br>
+
+        Income:<br>
+        <input type="text" name="income" id="formIncome"><br><br>
+
+        <input type="submit" value="Submit" onclick="postForm()">
+        <button type="button" onclick="postForm()">Try it</button>
+      </form>
+      Full Name:
+      <br>
+      <input type="text" name="fullName" id="getInfoID">
+      <br><br>
+      <button type="button" onclick="getInfo()">Get Info</button>
+      <br>
+      <p id="displayName">Name: </p>
+      <p id="displayAge">Age: </p>
+      <p id="displaySex">Sex: </p>
+      <p id="displayIncome">Income: </p>
   </h2>
-  
-  <form>
-  Full Name:<br>
-  <input type="text" name="fullName" id="formName"><br><br>
-
-  Age:<br>
-  <input type="text" name="age" id="formAge"><br><br>
-
-  Sex:<br>
-  <select name="gender" id="formSex">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-  </select><br><br>
-
-  Income:<br>
-  <input type="text" name="income" id="formIncome"><br><br>
-
-  <input type="submit" value="Submit" onclick="postForm()">
-  <button type="button" onclick="postForm()">Try it</button>
-</form>
-
-<h1>Display User Information</h1>
-<p>
-  Here you can check if the user was successfully inserted.
-</p>
-Full Name:
-<br>
-<input type="text" name="fullName" id="getInfoID">
-<br><br>
-<button type="button" onclick="getInfo()">Get Info</button>
-<br>
-<p id="displayName">Name: </p>
-<p id="displayAge">Age: </p>
-<p id="displaySex">Sex: </p>
-<p id="displayIncome">Income: </p>
 
 <!-- lightbox container hidden with CSS -->
 <a href="#_" class="lightbox" id="methodology">
