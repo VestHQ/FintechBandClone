@@ -14,5 +14,90 @@
 <!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery-2.2.3.min.js" ></script>
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/my-javascript.js"></script> -->
 
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<script>
+function postForm()
+{
+  // Gets the values from the form
+  var postName = document.getElementById("formName").value;
+  var postAge = document.getElementById("formAge").value;
+  var postSex = document.getElementById("formSex").value;
+  var postIncome = document.getElementById("formIncome").value;
+
+  // Need to double-check if values are present and type checking
+  // Need to create an id with employee number!
+
+  // Creates the person JSON object
+  var person =
+  {
+    "id": postName,
+    "Name": postName,
+    "Age": postAge,
+    "Sex": postSex,
+    "Income": postIncome
+  }
+
+  // Main HTTP Post closure
+  $.ajax(
+    {
+      url: 'http://demoappgianni.azurewebsites.net/tables/DemoTable',
+      type: 'post',
+      headers: {
+        'zumo-api-version': '2.0.0',
+        'Content-Type': 'application/json'
+      },
+      success: callback(),
+      data: JSON.stringify(person, null, 2),
+      statusCode: {
+        200: function() { alert("ok");},
+        201: function() { alert("success");},
+        400: function() { alert("format incorrect");},
+        403: function() { alert("forbidden");},
+        404: function() { alert("page not found");},
+        405: function() { alert("operation disabled");},
+        409: function() { alert("item already exists");},
+        500: function() { alert("internal Error");},
+      }
+    });
+}
+
+function getInfo()
+{
+  // Gets the name from the input
+  var getName = document.getElementById("getInfoID").value;
+
+  // Need to double-check if value is present and type checking
+  var getURL = 'http://demoappgianni.azurewebsites.net/tables/DemoTable/' + getName
+
+  $.ajax(
+    {
+      url: getURL,
+      type: 'get',
+      headers: {
+        'zumo-api-version': '2.0.0',
+        'Content-Type': 'application/json'
+      },
+      success: callback(),
+      statusCode: {
+        200: function(data) {
+          var userObject = JSON.parse(JSON.stringify(data));
+          document.getElementById("displayName").innerHTML = "Name: " + userObject.Name;
+          document.getElementById("displayAge").innerHTML = "Age: " + userObject.Age;
+          document.getElementById("displaySex").innerHTML = "Sex: " + userObject.Sex;
+          document.getElementById("displayIncome").innerHTML = "Income: " + userObject.Income;
+          alert("success");
+        },
+        400: function() { alert("format incorrect");},
+        404: function() { alert("name not found");},
+        405: function() { alert("operation disabled");},
+        500: function() { alert("internal Error");},
+      }
+    });
+}
+function callback() {
+  // This is an empty callback function
+}
+</script>
+
 <!-- TypeForm Scripts -->
 <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
